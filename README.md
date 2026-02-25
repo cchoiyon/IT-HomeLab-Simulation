@@ -1,14 +1,14 @@
-# 🧪 IT-HomeLab-Simulation
+# IT-HomeLab-Simulation
 
 Welcome to my enterprise IT and security Simulation! This project is a documentation of my journey building a corporate IT environment from scratch. Designed to simulate real-world infrastructure, this lab serves as a dedicated space for practicing system administration, security engineering, and network deployment.
 
-## 🚀 Project Overview
+## Project Overview
 
 The goal of this simulation is to bridge the gap between theory and practice by deploying a fully functional Active Directory environment, configuring network security policies, and managing endpoints just like a modern enterprise.
 
 ---
 
-## 🛠️ Phase 1: Laying the Foundation (Hyper-V Setup)
+## Phase 1: Laying the Foundation (Hyper-V Setup)
 
 Before building the virtual domain, I needed a hypervisor to host it. I opted for Microsoft's native **Hyper-V** to manage the virtualization layer.
 
@@ -27,7 +27,7 @@ A lab is no good if the machines can't communicate.
 
 ---
 
-## 🖥️ Phase 2: Forging the Servers
+## Phase 2: Forging the Servers
 
 With the hypervisor ready, it was time to establish the backbone of the infrastructure.
 
@@ -49,7 +49,7 @@ Redundancy and separation of duties are key.
 
 ---
 
-## 💻 Phase 3: Populating the Floor (Client VMs)
+##  Phase 3: Populating the Floor (Client VMs)
 
 To simulate a real network of employees, I created a fleet of Windows 10 client machines.
 My make believe company is CHOIYONTECH
@@ -65,7 +65,7 @@ My make believe company is CHOIYONTECH
 
 ---
 
-### 🔮 Next Steps
+### Next Steps (in progress)
 * [ ] Domain Configuration & Active Directory Integration
 * [ ] DHCP & DNS Setup
 * [ ] User & Group Policy Management
