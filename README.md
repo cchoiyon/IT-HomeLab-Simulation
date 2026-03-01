@@ -35,6 +35,7 @@ To get started, the built-in virtualization capabilities on the host machine nee
 1. Navigated to **Control Panel > Programs > Programs and Features**.
 2. Clicked on **Turn Windows features on or off**.
 3. Checked the box for **Hyper-V**, hit OK, and rebooted the host machine to apply changes.
+<img src="./images/Picture1.png" alt="pic" width="400">
 
 ### 1.2 Architecting the Virtual Network
 A lab is no good if the machines can't communicate.
@@ -42,7 +43,6 @@ A lab is no good if the machines can't communicate.
 2. Launched the **Virtual Switch Manager** from the Actions pane.
 3. Created a new **External virtual switch** linked to my primary network adapter.
    * *Purpose:* This acts as the bridge, allowing VMs to securely access the physical network and the internet.
-![Hyper V setup pic](./images/Picture1.png)
 
 
 
