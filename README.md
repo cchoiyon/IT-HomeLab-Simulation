@@ -83,6 +83,10 @@ The first system deployed is the **Domain Controller (DC01)**, which will eventu
    I allocated **4096 MB (4 GB)** of startup memory to ensure smooth performance during the Windows Server 2022 installation and subsequent Active Directory promotion. I also enabled **Dynamic Memory** to allow the host to reclaim unused RAM when the server is idle.
 <img src="./images/pic5.png" alt="pic4" width="400">
 
+4. **Configuring Networking:**
+   I connected the virtual network adapter to the **LabNAT** internal switch created in Phase 1. This ensures the VM is isolated within the lab network while maintaining the path for NAT-based internet access.
+<img src="./images/pic6.png" alt="pic6" width="400">
+
 ---
 
 ## Progress Tracker & Next Steps
