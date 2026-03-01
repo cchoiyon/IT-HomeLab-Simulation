@@ -49,7 +49,7 @@ To get started, the built-in virtualization capabilities on the host machine nee
 1. Navigated to **Control Panel > Programs > Programs and Features**.
 2. Clicked on **Turn Windows features on or off**.
 3. Checked the box for **Hyper-V**, hit OK, and rebooted the host machine to apply changes.
-<img src="./images/Picture1.png" alt="hyper v pic width="400">
+<img src="./images/Picture1.png" alt="hyper v" pic width="400">
 
 
 ### 1.2 Creating the Virtual Network (NAT)
@@ -59,7 +59,7 @@ To allow the lab environment to communicate internally while sharing the host’
    Using an elevated PowerShell session, I created a new internal switch named `LabNAT`.
    ```powershell
    New-VMSwitch -Name "LabNAT" -SwitchType Internal
-<img src="./images/pic2.png" alt="hyper v pic width="400">
+<img src="./images/pic2.png" alt="powershellpic" pic width="400">
   
 
 
