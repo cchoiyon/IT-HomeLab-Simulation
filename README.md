@@ -1,4 +1,4 @@
-# IT-HomeLab-Simulation
+# IT Infrastructure Simulation Project
 
 Welcome to my enterprise IT and security Simulation! This project is a documentation of my journey building a corporate IT environment from scratch. Designed to simulate real-world infrastructure, this lab serves as a dedicated space for practicing system administration, security engineering, and network deployment.
 
