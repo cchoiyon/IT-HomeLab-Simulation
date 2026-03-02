@@ -13,6 +13,13 @@ Welcome to my enterprise IT and security Simulation! This project is a documenta
     * [1.2 Creating the Virtual Network (NAT)](#12-creating-the-virtual-network-nat)
 * [Phase 2: Virtual Machine Provisioning](#phase-2-virtual-machine-provisioning)
     * [2.1 Provisioning the Domain Controller (DC01)](#21-provisioning-the-domain-controller-dc01)
+* [Phase 4: Active Directory Domain Services (AD DS)](#phase-4-active-directory-domain-services-ad-ds)
+    * [4.1 Forest Promotion & Domain Creation](#41-forest-promotion--domain-creation)
+    * [4.2 Domain Controller Options](#42-domain-controller-options)
+* [Phase 5: Domain Infrastructure & Client Integration](#phase-5-domain-infrastructure--client-integration)
+    * [5.1 Organizational Unit (OU) Architecture](#51-organizational-unit-ou-architecture)
+    * [5.2 Network Configuration for Endpoints](#52-network-configuration-for-endpoints)
+    * [5.3 Joining the Domain](#53-joining-the-domain)
 * [Progress Tracker & Next Steps](#progress-tracker--next-steps)
 
 ---
@@ -122,12 +129,103 @@ Once the initial provisioning was complete, my Hyper-V Manager displayed the ful
 
 ---
 
+---
+
+## Phase 3: OS Installation & Core Configuration
+
+With the virtual hardware provisioned, I proceeded with installing the operating systems and establishing the network identity for the core servers.
+
+### 3.1 Windows Server 2022 Installation (DC01)
+I initiated the boot process using the Server 2022 ISO. The installation was performed using the **Desktop Experience** to allow for easier administrative management during the initial lab build.
+<img src="./images/pic11.png" alt="Windows Server Installation" width="500">
+
+Once the installation finished, I established the local administrator credentials to secure the system.
+<img src="./images/pic12.png" alt="Admin Password Setup" width="500">
+
+### 3.2 Network Identity & Static IP Assignment
+For a Domain Controller to function reliably, it requires a persistent network identity. I manually configured the IPv4 settings on `DC01` to use a static IP within my lab's subnet.
+* **IP Address:** `192.168.10.5`
+* **Subnet Mask:** `255.255.255.0`
+* **Gateway:** `192.168.10.1`
+* **DNS:** Pointed to Google's public DNS (`8.8.8.8`) for initial internet connectivity before the local DNS role is promoted.
+<img src="./images/pic13.png" alt="Static IP Configuration" width="400">
+
+### 3.3 System Verification
+I verified the system properties and naming for the client workstations to ensure the naming convention was applied correctly at the OS level.
+<img src="./images/pic14.png" alt="System Properties Verification" width="500">
+
+---
+
+## Phase 4: Active Directory Domain Services (AD DS)
+
+This phase transforms the standalone server into a central authority for the `CHOIYONTECH` environment.
+
+### 4.1 Installing the AD DS Role
+I utilized the **Add Roles and Features Wizard** in Server Manager to begin the deployment of Active Directory Domain Services.
+<img src="./images/pic15.png" alt="Add AD DS Role" width="500">
+
+The installation includes the core directory services, Group Policy Management, and the necessary Remote Server Administration Tools (RSAT).
+<img src="./images/pic16.png" alt="Feature Installation Progress" width="500">
+
+---
+---
+
+## Phase 4: Active Directory Domain Services (AD DS) - Continued
+
+After the AD DS role was installed, I proceeded with the promotion of the server to a Domain Controller to establish the logical structure of the lab.
+
+### 4.1 Forest Promotion & Domain Creation
+I initiated the **Active Directory Domain Services Configuration Wizard** and selected "Add a new forest." I designated the root domain name as `choiyontech.local` to define the primary namespace for the environment.
+<img src="./images/pic17.png" alt="Add a New Forest" width="500">
+
+### 4.2 Domain Controller Options
+I configured the functional levels and essential DC capabilities:
+* **Functional Level:** Set to Windows Server 2016 for both Forest and Domain to maintain broad compatibility.
+* **Capabilities:** Ensured **DNS Server** and **Global Catalog (GC)** were selected to handle name resolution and multi-domain queries.
+* **DSRM:** Set a secure Directory Services Restore Mode password for emergency recovery.
+<img src="./images/pic18.png" alt="DC Options and DSRM" width="500">
+
+### 4.3 Post-Promotion Verification
+Once the promotion and subsequent reboot were complete, the login screen updated to reflect the new domain identity. I verified that the system was successfully operating under the `CHOIYONTECH` NetBIOS name.
+<img src="./images/pic19.png" alt="Domain Login Screen" width="500">
+
+I then used **Server Manager** to confirm that the AD DS and DNS services were active and healthy.
+<img src="./images/pic20.png" alt="Server Manager Dashboard" width="500">
+
+---
+
+## Phase 5: Domain Infrastructure & Client Integration
+
+With the Domain Controller operational, I moved toward organizing the directory and bringing endpoints into the fold.
+
+### 5.1 Organizational Unit (OU) Architecture
+To simulate a real corporate environment, I used the **Active Directory Administrative Center** to build a logical hierarchy. I created a top-level OU named `Bangladesh` to house the specific departments of the organization.
+<img src="./images/pic22.png" alt="Creating OUs" width="500">
+
+Within this structure, I created sub-OUs for specific business units including **IT, Finance, Sales, HR, Marketing, Development, and Administration**. This setup allows for granular Group Policy (GPO) application later in the project.
+<img src="./images/pic23.png" alt="Departmental OU Structure" width="500">
+
+### 5.2 Network Configuration for Endpoints
+Before joining the workstations to the domain, I manually configured the IPv4 settings for `CHOIYONTECH-PC01`.
+* **Static IP:** `192.168.10.20`
+* **DNS:** Pointed to `192.168.10.5` (DC01) to ensure the workstation can resolve the domain controller and the `choiyontech.local` namespace.
+<img src="./images/pic21.png" alt="Client Network Config" width="400">
+
+### 5.3 Joining the Domain
+With the network settings verified, I navigated to the System Properties on the client machine and joined it to the `choiyontech.local` domain. I authenticated using the domain administrator credentials to authorize the bind.
+<img src="./images/pic24.png" alt="Joining Workstation to Domain" width="500">
+
+---
+
 ## Progress Tracker & Next Steps
 
 * [x] Unlocking Hyper-V & Virtualization
 * [x] NAT Virtual Switch & Networking Foundation
-* [x] **Initial VM Provisioning (Servers & Clients Created)**
-* [ ] Windows Server 2022 OS Installation & Optimization
-* [ ] Static IP Configuration for DC01
-* [ ] Domain Configuration & Active Directory Integration
-* [ ] Joining Workstations to the Domain
+* [x] Initial VM Provisioning (DC01, SV02, PC01-04)
+* [x] Windows Server 2022 OS Installation
+* [x] **AD DS Forest Promotion (choiyontech.local)**
+* [x] **Departmental OU Structure Implementation**
+* [x] **Successful Domain Join (PC01)**
+* [ ] Bulk User Creation via PowerShell/CSV
+* [ ] DHCP Scope Implementation
+* [ ] Group Policy (GPO) Security Hardening
