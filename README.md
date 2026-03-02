@@ -20,6 +20,9 @@ Welcome to my enterprise IT and security Simulation! This project is a documenta
     * [5.1 Organizational Unit (OU) Architecture](#51-organizational-unit-ou-architecture)
     * [5.2 Network Configuration for Endpoints](#52-network-configuration-for-endpoints)
     * [5.3 Joining the Domain](#53-joining-the-domain)
+* [Phase 6: User & Group Management](#phase-6-user--group-management)
+    * [6.1 User Account Provisioning](#61-user-account-provisioning)
+    * [6.2 Directory Population & Verification](#62-directory-population--verification)
 * [Progress Tracker & Next Steps](#progress-tracker--next-steps)
 
 ---
@@ -230,9 +233,6 @@ I utilized **Active Directory Users and Computers (ADUC)** to create a dedicated
 I verified the global user list within the **Active Directory Administrative Center (ADAC)**. This view confirms that accounts for users such as Amara Okafor, Simon De Backer, and Lakshmi Chakraborty are correctly initialized within the `choiyontech.local` domain.
 <img src="./images/picusers1.png" alt="ADAC Global User List" width="500">
 
-Finally, I cross-referenced the departmental placement to ensure users were correctly nested within the `Bangladesh` OU hierarchy, specifically checking the **Finance** sub-OU for proper inheritance.
-<img src="./images/pic23.png" alt="OU Hierarchy Verification" width="500">
-
 ---
 
 ## Progress Tracker & Next Steps
@@ -243,7 +243,7 @@ Finally, I cross-referenced the departmental placement to ensure users were corr
 * [x] Windows Server 2022 OS Installation
 * [x] AD DS Forest Promotion (choiyontech.local)
 * [x] Departmental OU Structure Implementation
-* [x] **Bulk User Account Provisioning**
+* [x] **Bulk User Account Provisioning & Management**
 * [ ] DHCP Scope Implementation
 * [ ] Group Policy (GPO) Security Hardening
 * [ ] Network Monitoring Node (Debian) Setup
