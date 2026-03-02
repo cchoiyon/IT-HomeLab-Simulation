@@ -77,6 +77,8 @@ To allow the lab environment to communicate internally while sharing the host’
 
 ---
 
+---
+
 ## Phase 2: Virtual Machine Provisioning
 
 With the networking foundation in place, the next phase involves deploying the core virtual machines that make up the infrastructure.
@@ -111,7 +113,7 @@ After completing the DC01 setup, I began provisioning the rest of the enterprise
   <img src="./images/pic7.png" alt="pic7" width="400">
 
 * **Workstation Deployment (CHOIYONTECH-PC01):**
-  I started the rollout of the client machines following the strict naming convention. These machines are configured as Generation 1 VMs to match the server environment.
+  I started the rollout of the client machines following the strict naming convention.
   <img src="./images/pic8.png" alt="pic8" width="400">
 
 ### 2.3 Hyper-V Environment Overview
