@@ -254,34 +254,54 @@ To prepare the local environment for future hybrid integration (such as Microsof
 
 ---
 
+---
+
 ## Phase 7: Group Policy Management & Security Hardening
 
 To enforce security standards and maintain administrative control over the domain, I implemented **Group Policy Objects (GPOs)** to define specific configurations and security settings across the infrastructure.
 
 ### 7.1 GPO Infrastructure & Creation
-I utilized the **Group Policy Management Console (GPMC)** to manage the organizational forest. I created a new GPO named `GPO_Security_Lockdown` under the **Group Policy Objects** container to serve as the baseline security template for the domain.
-<img src="./images/gpo.jpg" alt="Group Policy Management Console" width="500">
-<img src="./images/gpo1.jpg" alt="Creating Security Lockdown GPO" width="500">
+I utilized the **Group Policy Management Console (GPMC)** to manage the organizational forest.
+<img src="./images/gpo.png" alt="Group Policy Management Console" width="500">
+
+I created a new GPO named `GPO_Security_Lockdown` under the **Group Policy Objects** container to serve as the baseline security template for the domain.
+<img src="./images/gpo1.png" alt="Creating Security Lockdown GPO" width="500">
 
 ### 7.2 Implementing Interactive Logon Banners
 To meet enterprise security compliance, I configured an interactive logon banner to notify users of authorized access only. 
 
-1. **Policy Configuration:** Navigated to `Computer Configuration > Policies > Windows Settings > Security Settings > Local Policies > Security Options`.
-   <img src="./images/gpo2.jpg" alt="Security Options Navigation" width="500">
+1. **Policy Configuration:** I navigated to the Security Options within the Computer Configuration policies.
+   <img src="./images/gpo2.png" alt="Security Options Navigation" width="500">
 
 2. **Defining the Legal Notice:** I configured the **Message text for users attempting to log on** with a formal warning notice.
-   <img src="./images/gpo3.jpg" alt="Configuring Logon Message Text" width="500">
+   <img src="./images/gpo3.png" alt="Configuring Logon Message Text" width="500">
 
 3. **Defining the Title:** I set the **Message title for users attempting to log on** to "OFFICIAL SECURITY NOTICE" to ensure visibility at the login screen.
-   <img src="./images/gpo4.jpg" alt="Configuring Logon Message Title" width="500">
+   <img src="./images/gpo4.png" alt="Configuring Logon Message Title" width="500">
 
 ### 7.3 Policy Linking & Enforcement
-Once the security settings were defined, I linked the `GPO_Security_Lockdown` object to the `CHOIYONTECH_Users` Organizational Unit. This ensures that the security baseline is applied strictly to all users within that container.
-<img src="./images/gpo5.jpg" alt="Linking GPO to OU" width="500">
+Once the security settings were defined, I linked the `GPO_Security_Lockdown` object to the `CHOIYONTECH_Users` Organizational Unit.
+<img src="./images/gpo5.png" alt="Linking GPO to OU" width="500">
 
 ### 7.4 Client-Side Policy Verification
-To verify the deployment, I accessed the `CHOIYONTECH-PC01` workstation and ran the command `gpupdate /force` in an elevated Command Prompt. This forces the client machine to pull the latest updates from the Domain Controller immediately.
-<img src="./images/gpo6.jpg" alt="Forcing Group Policy Update" width="500">
+To verify the deployment, I accessed the `CHOIYONTECH-PC01` workstation and ran the command `gpupdate /force` in an elevated Command Prompt.
+<img src="./images/gpo6.png" alt="Forcing Group Policy Update" width="500">
+
+---
+
+## Progress Tracker & Next Steps
+
+* [x] Unlocking Hyper-V & Virtualization
+* [x] NAT Virtual Switch & Networking Foundation
+* [x] Initial VM Provisioning (DC01, SV02, PC01-04)
+* [x] Windows Server 2022 OS Installation
+* [x] AD DS Forest Promotion (choiyontech.local)
+* [x] Departmental OU Structure Implementation
+* [x] Alternative UPN Suffix Configuration
+* [x] **Group Policy Security Baseline (Logon Banners)**
+* [ ] DHCP Scope Implementation
+* [ ] Folder Redirection & Drive Mapping GPOs
+* [ ] Network Monitoring Node (Debian) Setup
 
 ---
 
