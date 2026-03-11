@@ -303,19 +303,4 @@ To verify the deployment, I accessed the `CHOIYONTECH-PC01` workstation and ran 
 * [ ] Folder Redirection & Drive Mapping GPOs
 * [ ] Network Monitoring Node (Debian) Setup
 
----
-
-## Progress Tracker & Next Steps
-
-* [x] Unlocking Hyper-V & Virtualization
-* [x] NAT Virtual Switch & Networking Foundation
-* [x] Initial VM Provisioning (DC01, SV02, PC01-04)
-* [x] Windows Server 2022 OS Installation
-* [x] AD DS Forest Promotion (choiyontech.local)
-* [x] Departmental OU Structure Implementation
-* [x] Alternative UPN Suffix Configuration
-* [x] **Group Policy Security Baseline (Logon Banners)**
-* [ ] DHCP Scope Implementation
-* [ ] Folder Redirection & Drive Mapping GPOs
-* [ ] Network Monitoring Node (Debian) Setup
 
