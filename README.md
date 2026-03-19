@@ -299,27 +299,27 @@ To automate network configuration and streamline the onboarding of new workstati
 
 ### 8.1 DHCP Role Installation & Authorization
 I initiated the installation through the **Add Roles and Features Wizard**, ensuring all prerequisite security and network settings were verified.
-<img src="./images/DHCP-01.png" alt="DHCP Installation Wizard" width="500">
+<img src="./images/DHCP-01.PNG" alt="DHCP Installation Wizard" width="500">
 
 I selected the **DHCP Server** role and included the necessary Remote Server Administration Tools (RSAT).
-<img src="./images/DHCP-02.png" alt="Selecting DHCP Role" width="500">
+<img src="./images/DHCP-02.PNG" alt="Selecting DHCP Role" width="500">
 
 After the role installation, I completed the **DHCP Post-Install configuration** by authorizing the server in Active Directory using the Domain Administrator credentials. This prevents unauthorized DHCP servers from operating within the domain.
-<img src="./images/DHCP-03.png" alt="DHCP Authorization" width="500">
+<img src="./images/DHCP-03.PNG" alt="DHCP Authorization" width="500">
 
 ### 8.2 Scope Configuration
 I utilized the **New Scope Wizard** to define the range of IP addresses that the server would distribute to clients in the `192.168.10.0` subnet.
-<img src="./images/Scope-01.png" alt="New Scope Wizard" width="500">
+<img src="./images/Scope-01.PNG" alt="New Scope Wizard" width="500">
 
 I defined the address pool for the lab workstations:
 * **Start IP Address:** `192.168.10.100`
 * **End IP Address:** `192.168.10.200`
 * **Subnet Mask:** `255.255.255.0` (/24)
-<img src="./images/Scope-02.png" alt="IP Address Range" width="500">
+<img src="./images/Scope-02.PNG" alt="IP Address Range" width="500">
 
 ### 8.3 Client Verification
 To verify the implementation, I updated the network settings on a client workstation to **Obtain an IP address automatically**.
-<img src="./images/Scope-03.png" alt="Client DHCP Request" width="400">
+<img src="./images/Scope-03.PNG" alt="Client DHCP Request" width="400">
 
 The client successfully received a dynamic lease from the specified scope, confirming that the DHCP server was correctly routing and assigning addresses within the `choiyontech.local` environment.
 
